@@ -1,82 +1,117 @@
-<!-- Código em Desenvolvimento -->
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR" data-theme="light">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Folkloria Brasil</title>
-     <!-- Fontes -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Folkloria Brasil — Acervo Digital do Folclore Brasileiro</title>
+  <link rel="icon" href="assets/logo.png">
 
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
-    <!-- Link para o arquivo CSS -->
-    <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Lato&family=Poppins:ital,wght@0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
 
-        <a href ="#" class="logo">Folkloria Brasil<span>.</span></a>
+  <!-- NAVBAR -->
+  <header class="navbar" id="topo">
+    <a href="index.html"><img src="assets/logo.png" alt="Folkloria Brasil" width="40" height="40"></a>
 
-        <nav>
-            <ul>
-                <li><a href="index.html">Início</a></li>
-                <li><a href="lendas.html">Lendas&Mitos</a></li>
-                <li><a href="explorar.html">Explorar</a></li>
-                <li><a href="contato.html">Contato</a></li>
-            </ul>
-        </nav>
+    <button class="menu-btn" id="menu-btn" aria-label="Abrir menu"><i class="fa-solid fa-bars"></i></button>
 
-        <!-- Aba de pesquisa -->
-         <div class="search-box">
-                <span class="search-icon">⌕</span>
-                <input type="search" id="searchInput" placeholder="Pesquisar...">
-                <button id="clearSearch" aria-label="Limpar pesquisa">
-                    ×
-                </button>
-            </div>
+    <nav class="links" id="menu-links">
+      <a href="index.html" class="ativo">Início</a>
+      <a href="lendas.html">Lendas&amp;Mitos</a>
+      <a href="explorar.html">Explorar</a>
+      <a href="contato.html">Contatos</a>
+    </nav>
 
-    </header>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Alternar modo claro/escuro"><i class="fa-solid fa-sun"></i></button>
+    
+    <!-- Search bar -->
+    <div class="search">
+      <input id="search-input" type="search" placeholder="Pesquisar..." aria-label="Pesquisar mitos" autocomplete="off">
+      <ul id="search-results" hidden></ul>
+    </div>
+  </header>
 
- <!-- ================= HERO ================= -->
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <h1>Folkloria Brasil</h1>
+      <p>Descobrir, explorar e preservar os mitos e lendas do Brasil.</p>
+    </section>
 
-    <main>
-        <section class="hero">
-            <div class="hero-content">
-                <h1>Folkloria Brasil</h1>
-                <p>Inserir um subtítulo</p>
-            </div>
-        </section>
-        <!-- ================= SOBRE O SITE ================= -->
+    <!-- SOBRE -->
+    <section class="about container">
+      <img src="assets/magical-book.png" alt="Livro aberto com estrelas mágicas">
+      <div>
+        <h2>Sobre esse Site:</h2>
+        <p>O Folkloria Brasil é um acervo digital que reúne, reconta e preserva os principais mitos, lendas e figuras do folclore das cinco regiões do país. Aqui você conhece a origem de cada história, descobre curiosidades escondidas e explora o Brasil pelo mapa.</p>
+      </div>
+    </section>
 
-        <section class="about section-container" id="sobre">
-            <div class="about-image">
+    <!-- INSTRUÇÕES -->
+    <section class="container">
+      <h2 class="titulo">Instruções</h2>
+      <div class="cards">
+        <a class="info-card" href="lendas.html">
+          <i class="fa-solid fa-book-open"></i>
+          <h3>Lendas &amp; Mitos</h3>
+          <p>Encontre informações sobre todos os mitos e lendas brasileiras reunidos nessa página.</p>
+        </a>
+        <a class="info-card" href="explorar.html">
+          <i class="fa-solid fa-map-location-dot"></i>
+          <h3>Explorar</h3>
+          <p>Descubra os mitos e lendas de cada estado do Brasil utilizando um mapa interativo.</p>
+        </a>
+        <a class="info-card" href="contato.html">
+          <i class="fa-solid fa-address-book"></i>
+          <h3>Contatos</h3>
+          <p>Além dos meus contatos, conte suas histórias ou experiências que envolvam esses mitos.</p>
+        </a>
+      </div>
+    </section>
 
-                <img src="assets/img/saci.png"
-                    alt="Ilustração">
+    <!-- CARROSSEL -->
+    <section class="famous">
+      <h2 class="titulo">Os mais <span>Famosos</span></h2>
 
-            </div>
-            <div class="about-content">
+      <div class="carousel">
+        <button class="seta esq" id="carousel-prev" aria-label="Anterior"><i class="fa-solid fa-chevron-left"></i></button>
 
-                <h2>Sobre esse Site:</h2>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur
-                    adipiscing elit, sed do eiusmod tempor
-                    incididunt ut labore et dolore magna aliqua.
+        <ul class="track" id="carousel-track">
+          <li class="myth-card">
+            <img src="assets/Iara placeholder.jpg" alt="Iara, a sereia dos rios" loading="lazy">
+            <div><h3>Iara</h3><p>Norte <b>★★★★★</b></p><a class="btn" href="mitos/iara.html">Saber mais</a></div>
+          </li>
+          <li class="myth-card">
+            <img src="assets/Curupira-placeholde.jpg" alt="Curupira, protetor das florestas" loading="lazy">
+            <div><h3>Curupira</h3><p>Norte <b>★★★★☆</b></p><a class="btn" href="mitos/curupira.html">Saber mais</a></div>
+          </li>
+          <li class="myth-card">
+            <img src="assets/boitata placeholder.jpg" alt="Boitatá, a serpente de fogo" loading="lazy">
+            <div><h3>Boitatá</h3><p>Sul <b>★★★★☆</b></p><a class="btn" href="mitos/boitata.html">Saber mais</a></div>
+          </li>
+          <li class="myth-card">
+            <img src="assets/saci placeholder.jpg" alt="Saci-Pererê" loading="lazy">
+            <div><h3>Saci</h3><p>Sul <b>★★★★★</b></p><a class="btn" href="mitos/saci.html">Saber mais</a></div>
+          </li>
+          <li class="myth-card">
+            <img src="assets/mula-sem-cabeça placeholder.jpg" alt="Mula sem Cabeça envolta em chamas" loading="lazy">
+            <div><h3>Mula sem Cabeça</h3><p>Todo o Brasil <b>★★★★☆</b></p><a class="btn" href="mitos/mula.html">Saber mais</a></div>
+          </li>
+        </ul>
 
-                    Ut enim ad minim veniam, quis nostrud
-                    exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat.
+        <button class="seta dir" id="carousel-next" aria-label="Próximo"><i class="fa-solid fa-chevron-right"></i></button>
+      </div>
+    </section>
+  </main>
 
-                    Duis aute irure dolor in reprehenderit in
-                    voluptate velit esse cillum dolore eu fugiat
-                    nulla pariatur.
-                </p>
+  <!-- FOOTER -->
+  <footer class="footer">
+    
+  </footer>
 
-            </div>
-        </section>
-    </main>
-    <footer></footer>
+  <script src="script.js"></script>
 </body>
 </html>

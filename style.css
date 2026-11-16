@@ -1,0 +1,34 @@
+/* FOLKLORIA BRASIL 
+   Paletas : claro (Floresta ao Amanhecer) e escuro (Floresta à Noite) */
+
+/* ---------- Cores ---------- */
+:root {
+  --bg: #E9FDCC;        /* Frosted Mint */
+  --bg2: #DCEBDD;       /* Honeydew */
+  --titulo: #285943;    /* Emerald Depths */
+  --texto: #14221A;
+  --card: #78A66A;      /* Sage Green */
+  --card-texto: #101915;
+  --icone: #285943;
+  --painel: #285943;
+  --ouro: #EFC64A;      /* Tuscan Sun */
+  --ouro-texto: #9A7400;
+  --focus: #285943;
+  --laranja: #E8431F;
+  --font-titulo: "Fredoka", sans-serif;
+  --font: "Poppins", sans-serif;
+}
+
+:root[data-theme="dark"] {
+  --bg: #101915;        /* Carbon Black */
+  --bg2: #102B24;       /* Evergreen */
+  --titulo: #6E9F78;    /* Muted Teal */
+  --texto: #C5D0C5;     /* Ash Grey */
+  --card: #102B24;
+  --card-texto: #C5D0C5;
+  --icone: #6E9F78;
+  --painel: #102B24;
+  --ouro-texto: #EFC64A;
+  --focus: #EFC64A;
+}
+
