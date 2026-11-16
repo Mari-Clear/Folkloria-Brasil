@@ -5,20 +5,76 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Folkloria Brasil</title>
+     <!-- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- Link para o arquivo CSS -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <header>
-        <h1>Folkloria Brasil</h1> <!-- pelo menos uma h1 para cada página -->
-        <h3>Explorando a rica cultura e tradições do Brasil</h3> <!--subtitulo-->
+
+        <a href ="#" class="logo">Folkloria Brasil<span>.</span></a>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="lendas.html">Lendas&Mitos</a></li>
+                <li><a href="explorar.html">Explorar</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </nav>
+
+        <!-- Aba de pesquisa -->
+         <div class="search-box">
+                <span class="search-icon">⌕</span>
+                <input type="search" id="searchInput" placeholder="Pesquisar...">
+                <button id="clearSearch" aria-label="Limpar pesquisa">
+                    ×
+                </button>
+            </div>
+
     </header>
+
+ <!-- ================= HERO ================= -->
+
     <main>
-        <section>
-            <img src="sobre-nos.jpg" alt="Descrição da imagem">
-            <h2>Bem-vindo à Folkloria Brasil</h2> 
-            <p>
-                Esse website tem como objetivo recontar, catalogar e preservar principais mitos, 
-                lendas e figuras do folclore de todas as regiões do Brasil 
-            </p>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Folkloria Brasil</h1>
+                <p>Inserir um subtítulo</p>
+            </div>
+        </section>
+        <!-- ================= SOBRE O SITE ================= -->
+
+        <section class="about section-container" id="sobre">
+            <div class="about-image">
+
+                <img src="assets/img/saci.png"
+                    alt="Ilustração">
+
+            </div>
+            <div class="about-content">
+
+                <h2>Sobre esse Site:</h2>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur
+                    adipiscing elit, sed do eiusmod tempor
+                    incididunt ut labore et dolore magna aliqua.
+
+                    Ut enim ad minim veniam, quis nostrud
+                    exercitation ullamco laboris nisi ut aliquip
+                    ex ea commodo consequat.
+
+                    Duis aute irure dolor in reprehenderit in
+                    voluptate velit esse cillum dolore eu fugiat
+                    nulla pariatur.
+                </p>
+
+            </div>
         </section>
     </main>
     <footer></footer>
