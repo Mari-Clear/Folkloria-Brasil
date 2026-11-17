@@ -1,5 +1,5 @@
-/* FOLKLORIA BRASIL 
-   Paletas : claro (Floresta ao Amanhecer) e escuro (Floresta à Noite) */
+/* ---------- Base ---------- */
+* { box-sizing: border-box; margin: 0; }
 
 /* ---------- Cores ---------- */
 :root {
@@ -17,6 +17,7 @@
   --laranja: #E8431F;
   --font-titulo: "Fredoka", sans-serif;
   --font: "Poppins", sans-serif;
+  --font-padrao: "Lato", sans-serif;
 }
 
 :root[data-theme="dark"] {
@@ -30,5 +31,84 @@
   --painel: #102B24;
   --ouro-texto: #EFC64A;
   --focus: #EFC64A;
+  --font-titulo: "Fredoka", sans-serif;
+  --font: "Poppins", sans-serif;
 }
 
+html { scroll-behavior: smooth; }
+
+body {
+  padding-top: 60px;
+  font: 1.05rem/1.7 var(--font-padrao);
+  color: var(--texto);
+  background: var(--bg);
+  transition: background .3s, color .3s;
+}
+a { color: var(--titulo); }
+
+/* ---------- Navbar ---------- */
+.navbar {
+  position: fixed; inset: 0 0 auto; z-index: 10;
+  height: 60px; padding-inline: 1rem;
+  display: flex; align-items: center; gap: 1rem;
+  background: var(--bg2);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, .15);
+}
+
+.links { display: flex; gap: 2rem; margin-right: auto; margin-left: 1.5rem; }
+.links a { font: 1.05rem var(--font); text-decoration: none; border-bottom: 3px solid transparent; }
+.links a:hover { border-color: var(--card); }
+.links a.ativo { font-weight: 600; border-color: var(--ouro); }   /* página ativa */
+/* ---------- Botão de alternância de tema ---------- */
+.theme-toggle {
+  width: 40px; height: 40px; border: 0; border-radius: 50%; cursor: pointer;
+  font-size: 1.15rem; color: var(--ouro);
+}
+:root[data-theme="dark"] .theme-toggle { color: #101915; }
+
+.menu-btn { display: none; border: 0; background: none; font-size: 1.4rem; color: var(--titulo); cursor: pointer; }
+
+/* -------------- Pesquisa ------------------ */
+.search { position: relative; }
+.search__icon {
+  position: absolute;
+  left: .75rem; top: 50%;
+  transform: translateY(-50%);
+  font-size: .9rem;
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+.search input {
+  width: 200px; padding: .4rem .8rem;
+  font: .95rem var(--font); color: var(--texto);
+  background: transparent; border: 2px solid var(--titulo); border-radius: 6px;
+}
+.search ul {
+  position: absolute; top: 110%; right: 0; width: 100%; min-width: 220px;
+  background: var(--bg2); border: 2px solid var(--titulo); border-radius: 10px; overflow: hidden;
+}
+.search li a { display: block; padding: .6rem .9rem; font: .95rem var(--font); color: var(--texto); text-decoration: none; }
+.search li a:hover { background: var(--card); color: var(--card-texto); }
+
+/* ---------- Hero (a imagem troca com o tema) ---------- */
+.hero {
+  height: clamp(360px, 50vw, 540px);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; padding: 0 1rem;
+  background: url("assets/home.jpg") center / cover;
+}
+:root[data-theme="dark"] .hero { background-image: url("assets/home-night.jpg"); }
+
+.hero h1 {
+  font: 700 clamp(2.8rem, 9vw, 6rem)/1.05 var(--font-titulo);
+  color: var(--laranja);
+  -webkit-text-stroke: .09em #7A1A08;
+  paint-order: stroke fill;
+}
+.hero p {
+  max-width: 70ch; margin-top: .5rem;
+  font: 500 clamp(1.1rem, 3vw, 1.9rem)/1.35 var(--font);
+  color: #1B1400; text-shadow: 0 0 8px #FFF3B8, 0 0 14px #FFF3B8;
+}
+:root[data-theme="dark"] .hero p { color: #F2F6EE; text-shadow: 0 2px 4px #000, 0 0 14px #000; }
