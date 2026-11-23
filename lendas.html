@@ -5,13 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lendas e Mitos</title>
 
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Lato&family=Poppins:ital,wght@0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+
 </head>
 <body>
     <!-- NAVBAR -->
     <header class="navbar" >
-    <a href="index.html"><img src="assets/logo.png" alt="Folkloria Brasil" width="40" height="40"></a>
+    <a href="index.html"><img src="asset/logo.png" alt="Folkloria Brasil" width="40" height="40"></a>
 
     <button class="menu-btn" id="menu-btn" aria-label="Abrir menu"><i class="fa-solid fa-bars"></i></button>
 
@@ -22,7 +24,6 @@
       <a href="contato.html">Contatos</a>
     </nav>
 
-    <!-- Theme toggle button -->
     <button class="theme-toggle" id="theme-toggle" aria-label="Alternar modo claro/escuro"><i class="fa-solid fa-sun"></i></button>
     
     <!-- Search bar -->
@@ -30,11 +31,55 @@
       <input id="search-input" type="search" placeholder="Pesquisar..." aria-label="Pesquisar mitos" autocomplete="off">
       <ul id="search-results" hidden></ul>
     </div>
-
     </header>
-    <main id="topo">
-        <h1>Lendas e Mitos</h1>
-        <p>Explore as lendas e mitos do folclore brasileiro.</p>
+
+    <main class="pagina container" id="topo">
+
+    <!-- TÍTULO + BOTÃO DE FILTRO -->
+    <div class="pagina-topo">
+      <h1>Lendas e Mitos</h1>
+      <button class="filtro-btn" id="filtro-btn" type="button"
+              aria-expanded="false" aria-controls="painel-filtros" aria-label="Abrir filtros">
+        <i class="fa-solid fa-filter"></i>
+      </button>
+    </div>
+
+    <p class="pagina-intro">
+      Aqui ficam reunidas as lendas e os mitos do folclore brasileiro. O acervo cresce aos poucos:
+      a cada história pesquisada, uma nova página é adicionada. Escolha uma figura para conhecer
+      sua origem, suas variações pelo país e suas curiosidades.
+    </p>
+
+    <!-- PAINEL DE FILTROS (abre pelo botão acima) -->
+    <div class="filtros" id="painel-filtros" hidden>
+      <div class="campo">
+        <label for="f-nome">Nome</label>
+        <input id="f-nome" type="search" placeholder="Ex.: Saci" autocomplete="off">
+      </div>
+ 
+      <div class="campo">
+        <label for="f-regiao">Região</label>
+        <select id="f-regiao">
+          <option value="">Todas</option>
+          <option>Norte</option>
+          <option>Nordeste</option>
+          <option>Centro-Oeste</option>
+          <option>Sudeste</option>
+          <option>Sul</option>
+        </select>
+      </div>
+ 
+      <div class="campo">
+        <label for="f-ordem">Ordenar por</label>
+        <select id="f-ordem">
+          <option value="padrao">Ordem do acervo</option>
+          <option value="az">Nome (A–Z)</option>
+          <option value="popular">Mais populares</option>
+        </select>
+      </div>
+ 
+      <button class="btn" id="f-limpar" type="button">Limpar filtros</button>
+    </div>
     </main>
 
 
@@ -65,6 +110,8 @@
     <p class="creditos">© 2026 Folkloria Brasil — Desenvolvido por Maria Clara Pereira — Atualizado em Novembro de 2026</p>
   </footer>
 
-    <script src="script.js"></script>
+  <script src="mitos.js"></script>
+  <script src="script.js"></script>
+  <script src="lendas.js"></script>
 </body>
 </html>
