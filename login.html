@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Entrar — Folkloria Brasil</title>
+  <meta name="description" content="Entre na sua conta do Folkloria Brasil.">
+  <link rel="icon" href="asset/logo.png">
+
+  <!-- Aplica o tema salvo antes de desenhar a página (evita "piscar") -->
+  <script>
+    document.documentElement.dataset.theme = localStorage.getItem('folkloria-tema') ||
+      (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Lato&family=Poppins:ital,wght@0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar" id="topo">
+    <a href="index.html"><img src="asset/logo.png" alt="Folkloria Brasil" width="40" height="40"></a>
+
+    <button class="menu-btn" id="menu-btn" aria-label="Abrir menu"><i class="fa-solid fa-bars"></i></button>
+
+    <nav class="links" id="menu-links">
+      <a href="index.html">Início</a>
+      <a href="lendas.html">Lendas&amp;Mitos</a>
+      <a href="explorar.html">Explorar</a>
+      <a href="contato.html">Contatos</a>
+    </nav>
+
+    <button class="theme-toggle" id="theme-toggle" aria-label="Alternar modo claro/escuro"><i class="fa-solid fa-sun"></i></button>
+
+    <div class="search">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input id="search-input" type="search" placeholder="Pesquisar..." aria-label="Pesquisar mitos" autocomplete="off">
+      <ul id="search-results" hidden></ul>
+    </div>
+
+    <a class="login-link" href="login.html" aria-label="Entrar na conta" aria-current="page"><i class="fa-regular fa-circle-user"></i></a>
+  </header>
+
+  <main class="login-pagina container">
+
+    <!-- ESTADO 1: formulário de login -->
+    <section class="login-box" id="login-form-box" aria-labelledby="login-titulo">
+      <h1 id="login-titulo">Entrar</h1>
+      <p class="login-sub">Acesse sua conta para salvar seus mitos favoritos.</p>
+
+      <form id="login-form" novalidate>
+        <div class="campo">
+          <label for="login-email">E-mail</label>
+          <input id="login-email" type="email" autocomplete="email" placeholder="seu@email.com"
+                 aria-describedby="erro-email" required>
+          <p class="erro" id="erro-email" hidden></p>
+        </div>
+
+        <div class="campo">
+          <label for="login-senha">Senha</label>
+          <div class="senha-wrap">
+            <input id="login-senha" type="password" autocomplete="current-password"
+                   placeholder="Mínimo de 6 caracteres" aria-describedby="erro-senha" required>
+            <button class="senha-btn" id="senha-btn" type="button" aria-label="Mostrar senha">
+              <i class="fa-solid fa-eye"></i>
+            </button>
+          </div>
+          <p class="erro" id="erro-senha" hidden></p>
+        </div>
+
+        <button class="btn btn-grande" type="submit">Entrar</button>
+      </form>
+
+      <p class="login-aviso">
+        <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+        Versão de demonstração do projeto: o acesso é simulado neste navegador e nenhuma senha é guardada.
+      </p>
+    </section>
+
+    <!-- ESTADO 2: usuário já entrou -->
+    <section class="login-box" id="logado-box" aria-labelledby="logado-titulo" hidden>
+      <h1 id="logado-titulo" tabindex="-1">Olá, <span id="logado-nome"></span>!</h1>
+      <p class="login-sub">Você entrou como <strong id="logado-email"></strong>.</p>
+      <a class="btn btn-grande" href="lendas.html">Explorar lendas</a>
+      <button class="btn btn-sair" id="sair-btn" type="button">Sair</button>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-grid container">
+      <a class="footer-logo" href="index.html">Folkl<img src="asset/logo.png" alt="o" width="34" height="34">ria Brasil</a>
+
+      <div>
+        <h2>Navegação</h2>
+        <a href="#topo">Voltar ao topo</a>
+        <a href="lendas.html">Lendas&amp;Mitos</a>
+        <a href="explorar.html">Explorar</a>
+        <a href="contato.html">Contatos</a>
+      </div>
+
+      <div><h2>Pesquisas e Fontes</h2><p>(texto provisório)</p></div>
+
+      <div>
+        <h2>Redes Sociais</h2>
+        <a href="https://github.com/" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Github</a>
+        <a href="https://www.instagram.com/" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i> Instagram</a>
+      </div>
+
+      <div><h2>Copyright</h2><p>Projeto acadêmico — CEUB, Desenvolvimento de Interfaces 2/2026.</p></div>
+    </div>
+
+    <p class="creditos">© 2026 Folkloria Brasil — Desenvolvido por Maria Clara Pereira — Atualizado em Novembro de 2026</p>
+  </footer>
+
+  <script src="mitos.js"></script>
+  <script src="script.js"></script>
+  <script src="login.js"></script>
+</body>
+</html>

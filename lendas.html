@@ -1,39 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR" data-theme="light">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lendas e Mitos</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lendas e Mitos — Folkloria Brasil</title>
+  <meta name="description" content="Acervo de lendas e mitos do folclore brasileiro: Mula Sem Cabeça, Iara, Curupira, Boitatá, Saci-Pererê e muito mais.">
+  <link rel="icon" href="asset/logo.png">
 
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Lato&family=Poppins:ital,wght@0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+  <!-- Aplica o tema salvo antes de desenhar a página (evita "piscar") -->
+  <script>
+    document.documentElement.dataset.theme = localStorage.getItem('folkloria-tema') ||
+      (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  </script>
 
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Lato&family=Poppins:ital,wght@0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- NAVBAR -->
-    <header class="navbar" >
+
+  <!-- NAVBAR -->
+  <header class="navbar" id="topo">
     <a href="index.html"><img src="asset/logo.png" alt="Folkloria Brasil" width="40" height="40"></a>
 
     <button class="menu-btn" id="menu-btn" aria-label="Abrir menu"><i class="fa-solid fa-bars"></i></button>
 
     <nav class="links" id="menu-links">
-      <a href="index.html" class="ativo">Início</a>
-      <a href="lendas.html">Lendas&amp;Mitos</a>
+      <a href="index.html">Início</a>
+      <a href="lendas.html" class="ativo" aria-current="page">Lendas&amp;Mitos</a>
       <a href="explorar.html">Explorar</a>
       <a href="contato.html">Contatos</a>
     </nav>
 
     <button class="theme-toggle" id="theme-toggle" aria-label="Alternar modo claro/escuro"><i class="fa-solid fa-sun"></i></button>
-    
-    <!-- Search bar -->
+
     <div class="search">
+      <i class="fa-solid fa-magnifying-glass"></i>
       <input id="search-input" type="search" placeholder="Pesquisar..." aria-label="Pesquisar mitos" autocomplete="off">
       <ul id="search-results" hidden></ul>
     </div>
-    </header>
+    <a class="login-link" href="login.html" aria-label="Entrar na conta"><i class="fa-regular fa-circle-user"></i></a>
+  </header>
 
-    <main class="pagina container" id="topo">
+  <main class="pagina container">
 
     <!-- TÍTULO + BOTÃO DE FILTRO -->
     <div class="pagina-topo">
@@ -56,7 +65,7 @@
         <label for="f-nome">Nome</label>
         <input id="f-nome" type="search" placeholder="Ex.: Saci" autocomplete="off">
       </div>
- 
+
       <div class="campo">
         <label for="f-regiao">Região</label>
         <select id="f-regiao">
@@ -68,7 +77,7 @@
           <option>Sul</option>
         </select>
       </div>
- 
+
       <div class="campo">
         <label for="f-ordem">Ordenar por</label>
         <select id="f-ordem">
@@ -77,21 +86,29 @@
           <option value="popular">Mais populares</option>
         </select>
       </div>
- 
+
       <button class="btn" id="f-limpar" type="button">Limpar filtros</button>
     </div>
-    </main>
 
+    <!-- Anunciado por leitores de tela quando os filtros mudam -->
+    <p class="contagem" id="contagem" aria-live="polite"></p>
 
-      <!-- FOOTER -->
-    <footer class="footer">
+    <!-- GRADE: os cards são criados pelo lendas.js a partir do mitos.js -->
+    <ul class="grade-lendas" id="grade-lendas"></ul>
+
+    <p class="vazio" id="vazio" hidden>Nenhuma lenda encontrada com esses filtros. Tente limpar a busca.</p>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
     <div class="footer-grid container">
-      <a class="footer-logo" href="index.html">Folkl<img src="assets/logo.png" alt="o" width="34" height="34">ria Brasil</a>
+      <a class="footer-logo" href="index.html">Folkl<img src="asset/logo.png" alt="o" width="34" height="34">ria Brasil</a>
 
       <div>
         <h2>Navegação</h2>
-        <a href="index.html">Inicio</a>
-        <a href="lendas.html">Voltar ao topo</a>
+        <a href="#topo">Voltar ao topo</a>
+        <a href="lendas.html">Lendas&amp;Mitos</a>
         <a href="explorar.html">Explorar</a>
         <a href="contato.html">Contatos</a>
       </div>
@@ -110,6 +127,7 @@
     <p class="creditos">© 2026 Folkloria Brasil — Desenvolvido por Maria Clara Pereira — Atualizado em Novembro de 2026</p>
   </footer>
 
+  <!-- A ordem importa: dados → funções comuns → lógica desta página -->
   <script src="mitos.js"></script>
   <script src="script.js"></script>
   <script src="lendas.js"></script>

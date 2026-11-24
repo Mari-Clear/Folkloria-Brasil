@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Folkloria Brasil — Acervo Digital do Folclore Brasileiro</title>
+  <link rel="icon" href="asset/logo.png">
+
+  <!-- Aplica o tema salvo antes de desenhar a página (evita "piscar") -->
+  <script>
+    document.documentElement.dataset.theme = localStorage.getItem('folkloria-tema') ||
+      (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Lato&family=Poppins:ital,wght@0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar" id="topo">
+    <a href="index.html"><img src="asset/logo.png" alt="Folkloria Brasil" width="40" height="40"></a>
+
+    <button class="menu-btn" id="menu-btn" aria-label="Abrir menu"><i class="fa-solid fa-bars"></i></button>
+
+    <nav class="links" id="menu-links">
+      <a href="index.html" class="ativo">Início</a>
+      <a href="lendas.html">Lendas&amp;Mitos</a>
+      <a href="explorar.html">Explorar</a>
+      <a href="contato.html">Contatos</a>
+    </nav>
+
+    <button class="theme-toggle" id="theme-toggle" aria-label="Alternar modo claro/escuro"><i class="fa-solid fa-sun"></i></button>
+
+    <div class="search">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input id="search-input" type="search" placeholder="Pesquisar..." aria-label="Pesquisar mitos" autocomplete="off">
+      <ul id="search-results" hidden></ul>
+    </div>
+    <a class="login-link" href="login.html" aria-label="Entrar na conta"><i class="fa-regular fa-circle-user"></i></a>
+  </header>

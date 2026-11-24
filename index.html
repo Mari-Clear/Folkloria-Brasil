@@ -4,7 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Folkloria Brasil — Acervo Digital do Folclore Brasileiro</title>
-  <link rel="icon" href="assets/logo.png">
+  <link rel="icon" href="asset/logo.png">
+
+  <!-- Aplica o tema salvo antes de desenhar a página (evita "piscar") -->
+  <script>
+    document.documentElement.dataset.theme = localStorage.getItem('folkloria-tema') ||
+      (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  </script>
 
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Lato&family=Poppins:ital,wght@0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
@@ -13,7 +19,7 @@
 <body>
 
   <!-- NAVBAR -->
-  <header class="navbar" >
+  <header class="navbar" id="topo">
     <a href="index.html"><img src="asset/logo.png" alt="Folkloria Brasil" width="40" height="40"></a>
 
     <button class="menu-btn" id="menu-btn" aria-label="Abrir menu"><i class="fa-solid fa-bars"></i></button>
@@ -26,15 +32,16 @@
     </nav>
 
     <button class="theme-toggle" id="theme-toggle" aria-label="Alternar modo claro/escuro"><i class="fa-solid fa-sun"></i></button>
-    
-    <!-- Search bar -->
+
     <div class="search">
+      <i class="fa-solid fa-magnifying-glass"></i>
       <input id="search-input" type="search" placeholder="Pesquisar..." aria-label="Pesquisar mitos" autocomplete="off">
       <ul id="search-results" hidden></ul>
     </div>
+    <a class="login-link" href="login.html" aria-label="Entrar na conta"><i class="fa-regular fa-circle-user"></i></a>
   </header>
 
-  <main id="topo">
+  <main>
     <!-- HERO -->
     <section class="hero">
       <h1>Folkloria Brasil</h1>
@@ -85,7 +92,7 @@
             <div><h3>Iara</h3><p>Norte <b>★★★★★</b></p><a class="btn" href="mitos/iara.html">Saber mais</a></div>
           </li>
           <li class="myth-card">
-            <img src="asset/Curupira-placeholde.jpg" alt="Curupira, protetor das florestas" loading="lazy">
+            <img src="asset/curupira-placeholder.jpg" alt="Curupira, protetor das florestas" loading="lazy">
             <div><h3>Curupira</h3><p>Norte <b>★★★★☆</b></p><a class="btn" href="mitos/curupira.html">Saber mais</a></div>
           </li>
           <li class="myth-card">
@@ -93,11 +100,11 @@
             <div><h3>Boitatá</h3><p>Sul <b>★★★★☆</b></p><a class="btn" href="mitos/boitata.html">Saber mais</a></div>
           </li>
           <li class="myth-card">
-            <img src="asset/saci placeholder.jpg" alt="Saci-Pererê, redemoinho de travessuras" loading="lazy">
+            <img src="asset/saci%20placeholder.jpg" alt="Saci-Pererê" loading="lazy">
             <div><h3>Saci</h3><p>Sul <b>★★★★★</b></p><a class="btn" href="mitos/saci.html">Saber mais</a></div>
           </li>
           <li class="myth-card">
-            <img src="asset/mula-sem-cabeça placeholder.jpg" alt="Mula sem Cabeça, o galope da maldição" loading="lazy">
+            <img src="asset/mula-sem-cabeça placeholder.jpg" alt="Mula sem Cabeça envolta em chamas" loading="lazy">
             <div><h3>Mula sem Cabeça</h3><p>Todo o Brasil <b>★★★★☆</b></p><a class="btn" href="mitos/mula.html">Saber mais</a></div>
           </li>
         </ul>
@@ -110,12 +117,12 @@
   <!-- FOOTER -->
   <footer class="footer">
     <div class="footer-grid container">
-      <a class="footer-logo" href="index.html">Folkl<img src="assets/logo.png" alt="o" width="34" height="34">ria Brasil</a>
+      <a class="footer-logo" href="index.html">Folkl<img src="asset/logo.png" alt="o" width="34" height="34">ria Brasil</a>
 
       <div>
         <h2>Navegação</h2>
         <a href="#topo">Voltar ao topo</a>
-        <a href="lendas.html">Lendas&Mitos</a>
+        <a href="lendas.html">Lendas&amp;Mitos</a>
         <a href="explorar.html">Explorar</a>
         <a href="contato.html">Contatos</a>
       </div>
@@ -134,6 +141,7 @@
     <p class="creditos">© 2026 Folkloria Brasil — Desenvolvido por Maria Clara Pereira — Atualizado em Novembro de 2026</p>
   </footer>
 
+  <script src="mitos.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
